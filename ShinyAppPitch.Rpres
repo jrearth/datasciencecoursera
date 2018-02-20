@@ -1,0 +1,42 @@
+ShinyAppPitch
+========================================================
+author: JR Costa 
+date: January 2017
+autosize: true
+
+Introduction
+========================================================
+
+America has Been dealing with a weight issue for awhile now, as their are multiple reasons as to what is casuing this.I beleive that a  helpful way to to individualy judge this is to look at people's BMI scale. BMI which stands for Body Mass Index.
+
+
+App and code 
+========================================================
+
+the app can be found here:  https://jrearth.shinyapps.io/BMI_Check/
+the code for the App can be found here: https://github.com/jrearth/ShinyAppBMI
+Slide With Plot
+
+Directions
+========================================================
+Calculate Your BMI
+
+This app helps you calculate your BMI based on your weight and height.
+
+BMI can be used to indicate if you are overweight, obese, underweight or normal. A healthy BMI score is between 20 and 25.
+
+The application allows the user to provide input of weight(in pounds) and height(in inches). Output in the form of BMI with incation of underweight, normal or obese is displayed.
+BMI is not always accurate if you are extremly muscular though so looking at percent body fat with your doctor is also recommended.
+
+Code used for Calculation 
+=========================================================
+```{r}
+BMI<-function(weight,height) {(weight*0.45)/((height*0.025)^2)}
+
+diagnostic_f<-function(weight,height){
+  BMI_value<-(weight*0.45)/((height*0.025)^2)
+  ifelse(BMI_value<18.5,"underweight",
+  ifelse(BMI_value<25,"normal weight",
+  ifelse(BMI_value<30,"overweight","obesity")))
+}
+```
